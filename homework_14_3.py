@@ -5,9 +5,13 @@ from aiogram.dispatcher import FSMContext
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 import asyncio
+import logging
+
+from crud_functions import *
 
 
 api = '7227838526:AAHuAtKJ3k0NSDANLHGk0A7GbMLT0N9HB6k'
+logging.basicConfig(level=logging.INFO)
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
