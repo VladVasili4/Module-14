@@ -7,7 +7,7 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 import asyncio
 import logging
 
-from crud_functions import *
+
 
 
 api = '123k'
