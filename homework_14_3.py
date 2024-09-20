@@ -10,7 +10,7 @@ import logging
 from crud_functions import *
 
 
-api = '7227838526:AAHuAtKJ3k0NSDANLHGk0A7GbMLT0N9HB6k'
+api = '123k'
 logging.basicConfig(level=logging.INFO)
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
