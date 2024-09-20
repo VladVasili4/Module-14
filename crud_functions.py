@@ -15,17 +15,15 @@ def initiate_db():
     """)
 initiate_db()
 
-for i in range(1,5):
-    cursor.execute(f"INSERT INTO Products (title, description, price) VALUES(?, ?, ?)", (f'Product {i}', f'Описание {i}', f'{i*100}'))
+# for i in range(1,5):
+#     cursor.execute(f"INSERT INTO Products (title, description, price) VALUES(?, ?, ?)", (f'Product {i}', f'Описание {i}', f'{i*100}'))
 
+def get_all_products():
+    cursor.execute('SELECT * FROM Products')
 
-
-
-
-# def get_all_products():
-#     cursor.execute('SELECT * FROM Products')
-
-
+i = cursor.execute('SELECT title FROM Products WHERE id = ?', ('Product 1',))
+vibor = cursor.fetchone()[i]
+print(vibor)
 
 connection.commit()
 connection.close()
