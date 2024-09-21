@@ -20,10 +20,8 @@ initiate_db()
 
 def get_all_products():
     cursor.execute('SELECT * FROM Products')
-
-i = cursor.execute('SELECT title FROM Products WHERE id = ?', ('Product 1',))
-vibor = cursor.fetchone()[i]
-print(vibor)
+    products = cursor.fetchall()
+    return products
 
 connection.commit()
-connection.close()
+# connection.close()
