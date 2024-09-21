@@ -7,14 +7,10 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 import asyncio
 import logging
 
-from crud_functions import *
-
-
 api = '7227838526:AAHuAtKJ3k0NSDANLHGk0A7GbMLT0N9HB6k'
 logging.basicConfig(level=logging.INFO)
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
-
 
 in_kb = InlineKeyboardMarkup()
 in_button1 = InlineKeyboardButton(text='Рассчитать норму калорий', callback_data='calories')
@@ -37,9 +33,6 @@ by_button3 = InlineKeyboardButton(text='Product3', callback_data='product_buying
 by_button4 = InlineKeyboardButton(text='Product4', callback_data='product_buying')
 by_kb.add(by_button1, by_button2, by_button3, by_button4)
 
-
-
-
 class UserState(StatesGroup):
     age = State()
     growth = State()
@@ -54,9 +47,7 @@ async def get_buying_list(message):
     for number in range(1,5):
         await message.answer(f'Название: Product{number} | Описание: описание {number} | Цена: {number * 100}')
         with open(f'Tovary/{number}.jpg', 'rb') as img_number:
-
-            await message.answer_photo(img_number,)#, f'Название: Product{number} | Описание: описание {number} '
-                                       # f'| Цена: {number*100}')
+            await message.answer_photo(img_number,)
         await message.answer("Выберите продукт для покупки:", reply_markup=by_kb)
 
 @dp.callback_query_handler(text=['product_buying'])
